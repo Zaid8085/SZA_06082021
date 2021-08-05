@@ -30,24 +30,11 @@ public class WholeSalerrController {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 	
-	@GetMapping(value="/getUserDetails", produces="text/plain")
+	@GetMapping(value="/checkApplication", produces="text/plain")
     public String index() {
 		
-        return "The WholeSalerr";
+        return "Welcome";
     }
-	
-	@GetMapping(value="/listOfProducts", produces="text/plain")
-    public String getProducts() {
-		
-        return "list of products";
-    }
-	
-	@GetMapping("/getTuples")
-	public List<String> getTuples() {
-		return this.jdbcTemplate.queryForList("SELECT * FROM entries").stream()
-				.map((m) -> m.values().toString())
-				.collect(Collectors.toList());
-	}
 	
 	@RequestMapping(value="/addBankDetails", consumes = { "application/json" }, produces = { "application/json" })
 	@ManagedOperation(description="This api is use to insert bank details and return the same.")
