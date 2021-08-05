@@ -5,12 +5,19 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
 @SpringBootApplication
-public class WholeSalerrMsApplication {
+public class WholeSalerrMsApplication extends SpringBootServletInitializer{
 
 	public static void main(String[] args) {
 		SpringApplication.run(WholeSalerrMsApplication.class, args);
+	}
+	
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+	        return builder.sources(WholeSalerrMsApplication.class);
 	}
 
 }
